@@ -28,6 +28,9 @@ public class Appoitement implements Serializable {
 
 	@Column(name="appoitement_type")
 	private String appoitementType;
+	
+	@Column(name="appoitement_month")
+	private int appoitementMonth;
 
 	//bi-directional many-to-one association to Animal
 	@ManyToOne
@@ -44,13 +47,16 @@ public class Appoitement implements Serializable {
 
 
 
-	public Appoitement(int appointementYear2, int appoitementDay2,Time appoitementTime2,
-			Animal animal2, Doctor doctor2) {
+	public Appoitement(int app_id,String app_type,int appointementYear2, Animal animal2, Doctor doctor2,int appoitementDay2,Time appoitementTime2,int appoitementMonth2) {
+		
+		this.idappoitement=app_id;
+		this.appoitementType=app_type;
 		this.appointementYear=appointementYear2;
-		this.appoitementDay=appoitementDay2;
-		this.appoitementTime=appoitementTime2;
 		this.animal=animal2;
 		this.doctor=doctor2;
+		this.appoitementDay=appoitementDay2;
+		this.appoitementTime=appoitementTime2;
+		this.appoitementMonth=appoitementMonth2;
 		
 		
 	}
@@ -97,6 +103,13 @@ public class Appoitement implements Serializable {
 		this.appoitementType = appoitementType;
 	}
 
+	public int getAppoitementMonth() {
+		return this.appoitementMonth;
+	}
+
+	public void setAppoitementMonth(int appoitementMonth) {
+		this.appoitementMonth = appoitementMonth;
+	}
 	public Animal getAnimal() {
 		return this.animal;
 	}

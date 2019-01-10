@@ -13,9 +13,8 @@ public class Main extends Application {
 		DatabaseUtil dbUtil = new DatabaseUtil();
 		dbUtil.setUp();
 		dbUtil.startTransaction();
-		
 		 dbUtil.closeEntityManager();
-		
+		 
 		launch(args);
 
 	}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowDoctorsController">
+   <center>
+      <ListView fx:id="Doctors" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="27.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="AddDoctor" layoutY="2.0" mnemonicParsing="false" onAction="#AddDoctor" text="AddDoctor" />
+            <Button layoutX="74.0" layoutY="2.0" mnemonicParsing="false" text="Button" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

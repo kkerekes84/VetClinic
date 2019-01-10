@@ -33,16 +33,25 @@ import util.DatabaseUtil;
 public class MainController implements Initializable{
 	
 	
-	//@FXML
-	//private ListView<Appoitement> Appoitments;
+	
 	@FXML
 	private TableView<Appoitement> tableView;
-	private TableColumn<Appoitement,Integer> year_column;
-	private TableColumn<Appoitement,Integer> day_column;
-	private TableColumn<Appoitement,Time> hour_column;
-	private TableColumn<Appoitement,String> animal_name;
+	@FXML
+	private TableColumn<Appoitement,Integer> app_id;
+	@FXML
 	private TableColumn<Appoitement,String> appoitement_type;
+	@FXML
+	private TableColumn<Appoitement,Integer> year_column;
+	@FXML
+	private TableColumn<Appoitement,String> animal_name;
+	@FXML
 	private TableColumn<Appoitement,String> doctor_name;
+	@FXML
+	private TableColumn<Appoitement,Integer> day_column;
+	@FXML
+	private TableColumn<Appoitement,Time> hour_column;
+	@FXML
+	private TableColumn<Appoitement,Integer> month_column;
 	
 	
 	@FXML
@@ -50,6 +59,11 @@ public class MainController implements Initializable{
 	
 	@FXML
 	private Button ShowAnimals;
+	
+	@FXML
+	private Button ShowAppointements;
+	
+	@FXML Button ShowDoctors;
 	
     public void populateMainListView() {
     	int year= (PickDate.getValue().getYear());
@@ -63,22 +77,23 @@ public class MainController implements Initializable{
 		ObservableList<Appoitement> names = FXCollections.observableArrayList();
 		for (Appoitement a : appointementDBListbasedOnDate) {
 		if(a.getAppointementYear()==year) {
-			 names.add(new Appoitement(a.getAppointementYear(),a.getAppoitementDay(),a.getAppoitementTime(),a.getAnimal(),a.getDoctor()));
+			 names.add(new Appoitement(a.getIdappoitement(),a.getAppoitementType(),a.getAppointementYear(),a.getAnimal(),a.getDoctor(),a.getAppoitementDay(),a.getAppoitementTime(),a.getAppoitementMonth()));
 		  
 			
 	      }
 	    	}
+		app_id.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("idappoitement"));
+		appoitement_type.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("appoitement_type"));
 		year_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("appointement_year"));
+		animal_name.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("idanimal"));
+    	doctor_name.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("iddoctor"));
     	day_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("appoitement_day"));
     	hour_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Time>("appoitement_time"));
-    	animal_name.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("idanimal"));
-    	appoitement_type.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("appoitement_type"));
-    	doctor_name.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("iddoctor"));
+    	month_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("appoitement_month"));
+    	
 		tableView.setItems(names);
-		//Appoitments.setItems(names);
-		//Appoitments.refresh();
 		db.closeEntityManager();
-		//populateMainListView();
+	
     
     }
     
@@ -91,7 +106,24 @@ public class MainController implements Initializable{
         stage1.show();
     	
     }
+    
+    public void AllAppointements() throws IOException {
+    	BorderPane appointement=(BorderPane) FXMLLoader.load(getClass().getResource("/controllers/ShowAppointements.fxml"));
+    	 Scene scene2 = new Scene(appointement,800,800);
+         Stage stage2 = new Stage();
+         stage2.setTitle("Appointement_List");
+         stage2.setScene(scene2);
+         stage2.show();
+    }
   
+    public void AllDoctors() throws IOException {
+    	BorderPane appointement=(BorderPane) FXMLLoader.load(getClass().getResource("/controllers/ShowDoctors.fxml"));
+    	 Scene scene3 = new Scene(appointement,800,800);
+         Stage stage3 = new Stage();
+         stage3.setTitle("Doctors_List");
+         stage3.setScene(scene3);
+         stage3.show();
+    }
 @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

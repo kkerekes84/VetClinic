@@ -75,7 +75,7 @@ public class DatabaseUtil {
 	public void printAllAppointemensFromDB() {
 		List<Appoitement> results = entityManager.createNativeQuery("Select * from vetclinic.appoitement",Appoitement.class).getResultList();
 	   for(Appoitement appointement : results) {
-		   System.out.println("Appointement :"+appointement.getAppoitementType()+ " has ID :"+appointement.getIdappoitement());
+		   System.out.println("Appointement :"+appointement.getAppoitementType()+ " has ID :"+appointement.getIdappoitement()+" in month" + appointement.getAppoitementMonth());
 	   }
 	}
 	public List<Appoitement> appointementList() {

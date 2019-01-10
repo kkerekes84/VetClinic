@@ -7,19 +7,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <left>
       <DatePicker fx:id="PickDate" onAction="#populateMainListView" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <TableView fx:id="tableView" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableView" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="year_column" prefWidth="75.0" text="Year" />
-            <TableColumn fx:id="day_column" prefWidth="75.0" text="Day" />
-            <TableColumn fx:id="hour_column" prefWidth="75.0" text="Hour" />
-            <TableColumn fx:id="animal_name" prefWidth="122.4000244140625" text="Animal name" />
-            <TableColumn fx:id="appoitement_type" prefWidth="193.59994506835938" text="Appointement Type" />
-            <TableColumn fx:id="doctor_name" prefWidth="148.800048828125" text="Doctor" />
+          <TableColumn fx:id="app_id" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="appoitement_type" prefWidth="132.79998779296875" text="Appointement Type" />
+            <TableColumn fx:id="year_column" prefWidth="61.60003662109375" text="Year" />
+            <TableColumn fx:id="animal_name" prefWidth="123.20001220703125" text="Animal name" />
+            <TableColumn fx:id="doctor_name" prefWidth="150.39996337890625" text="Doctor" />
+            <TableColumn fx:id="day_column" prefWidth="107.99993896484375" text="Day" />
+            <TableColumn fx:id="hour_column" prefWidth="117.60009765625" text="Hour" />
+            <TableColumn fx:id="month_column" prefWidth="75.0" text="Month" />
         </columns>
       </TableView>
    </center>
@@ -27,8 +29,8 @@
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="ShowAnimals" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ShowAnimals" text="ShowAnimals" />
-            <Button layoutX="14.0" layoutY="48.0" mnemonicParsing="false" text="ShowDoctors" />
-            <Button layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="ShowAppoitements" />
+            <Button fx:id="ShowDoctors" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#AllDoctors" text="ShowDoctors" />
+            <Button fx:id="ShowAppointements" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#AllAppointements" text="ShowAppoitements" />
          </children>
       </Pane>
    </bottom>
