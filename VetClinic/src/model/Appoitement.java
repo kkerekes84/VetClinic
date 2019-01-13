@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Time;
+import model.Animal;
+import model.Doctor;
 
 
 /**
@@ -48,7 +50,7 @@ public class Appoitement implements Serializable {
 
 
 	public Appoitement(int app_id,String app_type,int appointementYear2, Animal animal2, Doctor doctor2,int appoitementDay2,Time appoitementTime2,int appoitementMonth2) {
-		
+	
 		this.idappoitement=app_id;
 		this.appoitementType=app_type;
 		this.appointementYear=appointementYear2;

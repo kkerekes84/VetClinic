@@ -76,12 +76,41 @@ public class MainController implements Initializable{
 		List<Appoitement> appointementDBListbasedOnDate= (List<Appoitement>) db.appointementList();
 		ObservableList<Appoitement> names = FXCollections.observableArrayList();
 		for (Appoitement a : appointementDBListbasedOnDate) {
-		if(a.getAppointementYear()==year) {
-			 names.add(new Appoitement(a.getIdappoitement(),a.getAppoitementType(),a.getAppointementYear(),a.getAnimal(),a.getDoctor(),a.getAppoitementDay(),a.getAppoitementTime(),a.getAppoitementMonth()));
+		if(a.getAppointementYear()==year && a.getAppoitementMonth()==month) 
+		{	
+		 
+			/*String a_id,a_type,a_year,a_name,a_doctor,a_day,a_time,a_month= new String();
+			a_id=String.valueOf(a.getIdappoitement());
+		    a_type=String.valueOf(a.getAppoitementType());
+		    a_year=String.valueOf(a.getAppointementYear());
+		    a_name=String.valueOf(a.getAnimal().getAnimalName());
+		    a_doctor=String.valueOf(a.getDoctor().getDoctorName());
+		    a_day=String.valueOf(a.getAppoitementDay());
+		    a_time=String.valueOf(a.getAppoitementTime());
+		    a_month=String.valueOf(a.getAppoitementMonth());*/
+		    
+		
+			
+		/*	 names.add(String.valueOf(a.getIdappoitement()));
+		  names.add(String.valueOf(a.getAppoitementType()));
+		  names.add(String.valueOf(a.getAppointementYear()));
+		  names.add(String.valueOf(a.getAnimal().getAnimalName()));
+		  names.add(String.valueOf(a.getDoctor().getDoctorName()));
+		  names.add(String.valueOf(a.getAppoitementDay()));
+		  names.add(String.valueOf(a.getAppoitementTime()));
+		  names.add(String.valueOf(a.getAppoitementMonth())); */
+		//names.add(new Appoitement(a.getIdappoitement(),a.getAppoitementType(),a.getAppointementYear(),a.getAnimal(),a.getDoctor(),a.getAppoitementDay(),a.getAppoitementTime(),a.getAppoitementMonth()));
+		  names.add(a);
+		 // names.addAll(a);
 		  
 			
-	      }
+			
+	     
+	     }
 	    	}
+		db.closeEntityManager();
+		
+		
 		app_id.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("idappoitement"));
 		appoitement_type.setCellValueFactory(new PropertyValueFactory<Appoitement,String>("appoitement_type"));
 		year_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("appointement_year"));
@@ -90,12 +119,16 @@ public class MainController implements Initializable{
     	day_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("appoitement_day"));
     	hour_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Time>("appoitement_time"));
     	month_column.setCellValueFactory(new PropertyValueFactory<Appoitement,Integer>("appoitement_month"));
-    	
+	
 		tableView.setItems(names);
-		db.closeEntityManager();
+		//tableView.getColumns().addAll(app_id,appoitement_type,year_column,animal_name,doctor_name,day_column,hour_column,month_column);
 	
     
     }
+    
+ 
+
+	
     
     public void ShowAnimals() throws IOException {
     	BorderPane animal = (BorderPane) FXMLLoader.load(getClass().getResource("/controllers/ShowAnimals.fxml"));

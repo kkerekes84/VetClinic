@@ -26,6 +26,8 @@ public class ShowDoctorsController implements Initializable {
 	
 	@FXML Button AddDoctor;
 	
+	@FXML Button refresh;
+	
 	public void populateDoctorsList()
 	{
 		DatabaseUtil db = new DatabaseUtil();
@@ -55,6 +57,11 @@ public class ShowDoctorsController implements Initializable {
 	        stage.show();
 	    	
 	    }
+	 
+	 public void Refresh() {
+		 populateDoctorsList();
+		 Doctors.refresh();
+	 }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		populateDoctorsList();

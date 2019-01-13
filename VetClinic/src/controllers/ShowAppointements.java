@@ -59,8 +59,8 @@ public class ShowAppointements implements Initializable {
 		i.add(String.valueOf(app.getIdappoitement()));	
 		ty.add(String.valueOf(app.getAppoitementType()));
 		y.add(String.valueOf(app.getAppointementYear()));
-		a.add(String.valueOf(app.getAnimal()));
-		doc.add(String.valueOf(app.getDoctor()));
+		a.add(String.valueOf(app.getAnimal().getAnimalName()));
+		doc.add(String.valueOf(app.getDoctor().getDoctorName()));
 		d.add(String.valueOf(app.getAppoitementDay()));
 		t.add(String.valueOf(app.getAppoitementTime()));
 		m.add(String.valueOf(app.getAppoitementMonth()));
