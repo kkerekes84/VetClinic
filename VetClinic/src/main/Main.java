@@ -16,6 +16,7 @@ public class Main extends Application {
 		 dbUtil.closeEntityManager();
 		 
 		launch(args);
+		
 
 	}
 	@Override
